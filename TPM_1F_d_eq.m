@@ -55,7 +55,6 @@ bb = z(4)+1i*z(5);
 
 % The TPM equations for the expectation values [Francesco's notes
 % 2F_EV_7-8.pdf]
-%  + 2*real(sum(p.g.*bCv))
 
 b_dot = -p.gamma_c*b + sum(conj(p.g).*Vc);
 
@@ -90,9 +89,3 @@ z_dot = [real(b_dot); imag(b_dot); ...
   real(bCv_dot); imag(bCv_dot); ...
   real(bCc_dot); imag(bCc_dot); ...
   real(bVc_dot); imag(bVc_dot)];
-if t <=10
-    load('ev.mat','Bb_ev')
-    print =b_dot;
-    Bb_ev = [Bb_ev print];
-    save('ev.mat',"Bb_ev")
-end
